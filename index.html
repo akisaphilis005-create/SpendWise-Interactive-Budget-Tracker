@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpendWise - Budget Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <div class="dashboard">
+        <aside class="sidebar">
+            <h2>SpendWise</h2>
+            <nav>
+                <a href="#overview">Dashboard</a>
+                <a href="#budget-section">Set Budget</a>
+                <a href="#expense-section">Add Expense</a>
+                <a href="#expense-list">Expenses</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <div>
+                    <h1>My Dashboard</h1>
+                    <p>Manage your money wisely.</p>
+                </div>
+            </header>
+
+            <section id="overview">
+                <h2>Budget Overview</h2>
+                <div class="summary-grid">
+                    <article class="summary-card">
+                        <h3>Total Budget</h3>
+                        <p id="total-budget">KSh 0.00</p>
+                    </article>
+
+                    <article class="summary-card">
+                        <h3>Total Expenses</h3>
+                        <p id="total-expenses">KSh 0.00</p>
+                    </article>
+
+                    <article class="summary-card">
+                        <h3>Remaining Balance</h3>
+                        <p id="remaining-balance">KSh 0.00</p>
+                    </article>
+                </div>
+
+                <p id="budget-message" class="message" aria-live="polite">
+                    Set your budget to get started.
+                </p>
+            </section>
+
+            <section id="budget-section" class="panel">
+                <h2>Set Your Budget</h2>
+                <form id="budget-form">
+                    <label for="budget-input">Budget Amount (KSh)</label>
+                    <input
+                        type="number"
+                        id="budget-input"
+                        min="0.01"
+                        step="0.01"
+                        placeholder="Enter your budget"
+                        required
+                    >
+                    <button type="submit">Save Budget</button>
+                </form>
+            </section>
+
+            <section id="expense-section" class="panel">
+                <h2>Add New Expense</h2>
+
+                <form id="expense-form">
+                    <label for="expense-name">Expense Name</label>
+                    <input
+                        type="text"
+                        id="expense-name"
+                        placeholder="e.g. Food"
+                        required
+                    >
+
+                    <label for="expense-category">Category</label>
+                    <select id="expense-category" required>
+                        <option value="">Choose a category</option>
+                        <option value="Food">Food</option>
+                        <option value="Transport">Transport</option>
+                        <option value="Rent">Rent</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Savings">Savings</option>
+                        <option value="Utilities">Utilities</option>
+                        <option value="Other">Other</option>
+                    </select>
+
+                    <label for="expense-amount">Amount (KSh)</label>
+                    <input
+                        type="number"
+                        id="expense-amount"
+                        min="0.01"
+                        step="0.01"
+                        placeholder="Enter expense amount"
+                        required
+                    >
+
+                    <button type="submit">Add Expense</button>
+                </form>
+
+                <p id="form-message" class="message" aria-live="polite"></p>
+            </section>
+
+            <section id="expense-list" class="panel">
+                <h2>Expense Records</h2>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Expense</th>
+                                <th>Category</th>
+                                <th>Amount</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="expense-table-body">
+                            <tr>
+                                <td colspan="4">No expenses added yet.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <footer>
+                <p>&copy; 2026 SpendWise Budget Tracker</p>
+            </footer>
+        </main>
+    </div>
+
+</body>
+</html>
